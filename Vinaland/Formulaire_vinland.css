@@ -1,0 +1,208 @@
+:root {
+    --bg:        #0d0d0d;
+    --surface:   #1a1a1a;
+    --border:    #2a2a2a;
+    --red:       #e50914;
+    --red-hover: #ff1f2b;
+    --text:      #f0f0f0;
+    --muted:     #888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+    background-color: #111;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--red);
+}
+
+header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--red);
+    letter-spacing: 2px;
+}
+
+.bouton-inscrire {
+    background-color: var(--red);
+    color: #fff;
+    padding: 9px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s;
+}
+
+.bouton-inscrire:hover {
+    background-color: var(--red-hover);
+}
+
+/* ── Centre ── */
+.centre {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ── Boîte ── */
+.boite {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--red);
+    border-radius: 8px;
+    padding: 44px 40px;
+    width: 100%;
+    max-width: 440px;
+}
+
+.boite h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ── Champs ── */
+.champ {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 11px 14px;
+    background-color: #111;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text);
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--red);
+    outline: none;
+}
+
+/* ── Options ── */
+.options {
+    margin-bottom: 24px;
+    font-size: 13px;
+}
+
+.options a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.options a:hover {
+    color: var(--red);
+}
+
+/* ── Boutons ── */
+.boutons {
+    display: flex;
+    gap: 10px;
+}
+
+.bouton-valider,
+.bouton-supprimer {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.bouton-valider {
+    background-color: var(--red);
+    color: #fff;
+}
+
+.bouton-valider:hover {
+    background-color: var(--red-hover);
+}
+
+.bouton-supprimer {
+    background-color: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+}
+
+.bouton-supprimer:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+/* ── Message ── */
+.message {
+    margin-top: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    display: none;
+}
+
+.message.succes {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #6fcf97;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.message.erreur {
+    background-color: rgba(229, 9, 20, 0.1);
+    color: #ff6b6b;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+    .boite {
+        padding: 28px 20px;
+    }
+
+    .boutons {
+        flex-direction: column;
+    }
+}

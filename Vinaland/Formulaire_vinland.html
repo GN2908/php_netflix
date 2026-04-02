@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion — Vinland Anime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Formulaire_vinland.css">
+</head>
+<body>
+    <header>
+        <h1>Vinland Anime</h1>
+        <a href="inscription.html" class="bouton-inscrire">S'inscrire</a>
+    </header>
+    <div class="centre">
+        <div class="boite">
+            <h1>Se connecter</h1>
+            <form action="traitement.connexion.php" method="post" id="formulaire">
+                <div class="champ">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" id="pseudo" name="pseudo" placeholder="Ton pseudo…" required>
+                </div>
+                <div class="champ">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="options">
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
+                <div class="boutons">
+                    <input type="submit" value="Valider" class="bouton-valider">
+                    <input type="reset" value="Effacer" class="bouton-supprimer">
+                </div>
+                <div class="message" id="msg"></div>
+            </form>
+        </div>
+    </div>
+    <script src="connexion.js"></script>
+</body>
+</html>

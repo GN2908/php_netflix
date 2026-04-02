@@ -1,0 +1,287 @@
+/* ===== VARIABLES ===== */
+:root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c26;
+    --accent: #e63946;
+    --accent2: #ff6b6b;
+    --text: #f0f0f0;
+    --text-muted: #888;
+    --card-w: 160px;
+    --card-h: 240px;
+    --radius: 10px;
+    --transition: 0.25s ease;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #000 0%, transparent 100%);
+    padding: 18px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.menu-icon {
+    position: absolute;
+    left: 20px;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--text);
+    transition: color var(--transition);
+    user-select: none;
+}
+.menu-icon:hover { color: var(--accent); }
+
+header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #fff, var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== NAV ===== */
+nav {
+    display: none;
+    background: var(--surface);
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+nav.open { display: block; }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color var(--transition);
+    position: relative;
+    padding-bottom: 4px;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width var(--transition);
+}
+nav a:hover { color: var(--text); }
+nav a:hover::after { width: 100%; }
+
+/* ===== SECTIONS ===== */
+.section {
+    padding: 32px 24px 16px;
+}
+
+.section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.section h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(230,57,70,0.4), transparent);
+}
+
+/* ===== CARROUSEL ===== */
+.carousel-wrapper {
+    position: relative;
+}
+
+/* Boutons de navigation */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    width: 40px;
+    height: 60px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition), border-color var(--transition);
+    backdrop-filter: blur(6px);
+}
+.carousel-btn:hover { background: rgba(230,57,70,0.7); border-color: var(--accent); }
+.carousel-btn.prev { left: -10px; }
+.carousel-btn.next { right: -10px; }
+
+/* Dégradé sur les bords */
+.carousel-wrapper::before,
+.carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 40px;
+    z-index: 5;
+    pointer-events: none;
+}
+.carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg), transparent);
+}
+.carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--bg), transparent);
+}
+
+/* ===== CARDS CONTAINER ===== */
+.cards {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    padding: 10px 4px 16px;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+.cards::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+.cards.grabbing { cursor: grabbing; }
+
+/* ===== CARTE INDIVIDUELLE ===== */
+.card {
+    flex: 0 0 var(--card-w);
+    width: var(--card-w);
+    background-color: var(--surface2);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(230,57,70,0.25);
+    z-index: 2;
+}
+
+/* Image uniforme */
+.card-img-wrapper {
+    width: 100%;
+    height: var(--card-h);
+    overflow: hidden;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img { transform: scale(1.08); }
+
+/* Badge progression */
+.progress-bar {
+    position: absolute;
+    bottom: 40px;
+    left: 0; right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+}
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+}
+
+/* Overlay au hover */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 48px;
+}
+.card:hover .card-overlay { opacity: 1; }
+
+.play-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.card p {
+    font-size: 0.72rem;
+    text-align: center;
+    padding: 8px 6px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: var(--surface2);
+}
+
+/* Placeholder vide */
+.card.empty { opacity: 0.3; pointer-events: none; }
+.card.empty .card-img-wrapper { background: var(--surface); }
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 24px;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}

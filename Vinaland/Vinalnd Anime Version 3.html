@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinland Anime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="vinland-Anime CSS Version 3.css">
+</head>
+<body>
+
+<header>
+    <div class="menu-icon" onclick="toggleMenu()" title="Menu">☰</div>
+    <h1>Vinland Anime</h1>
+</header>
+
+<nav id="menu">
+    <ul>
+        <li><a href="Formulaire_vinland.html">Inscription/Connexion</a></li>
+        <li><a href="Films.html">Films</a></li>
+        <li><a href="Series.html">Séries</a></li>
+        <li><a href="Genres.html">Genres</a></li>
+    </ul>
+</nav>
+
+<!-- ======= SECTION : Reprendre le visionnage ======= -->
+<section class="section">
+    <h2>Reprenez votre visionnage</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards" id="carousel-continue">
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Vinland-Saga 4.jpeg" alt="Vinland Saga">
+                </div>
+                <div class="progress-bar"><span style="width:62%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Vinland Saga</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/tensei shitara slime datta ken.jpg" alt="Tensura">
+                </div>
+                <div class="progress-bar"><span style="width:30%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Tensura Slime</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/highschool of the dead.jpg" alt="Highschool of the Dead">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Highschool of the Dead</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/demon slayer.jpg" alt="Demon Slayer">
+                </div>
+                <div class="progress-bar"><span style="width:45%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Demon Slayer</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/violet evergarden.jpg" alt="Violet Evergarden">
+                </div>
+                <div class="progress-bar"><span style="width:55%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Violet Evergarden</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/erased.jpg" alt="Erased">
+                </div>
+                <div class="progress-bar"><span style="width:90%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Erased</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/rezero2.jpg" alt="Re:Zero">
+                </div>
+                <div class="progress-bar"><span style="width:20%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Re:Zero</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/The promised neverland.png" alt="The promised neverland">
+                </div>
+                <div class="progress-bar"><span style="width:60%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>The promised neverland</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Samurai Champloo 2.jpeg" alt="Samurai Champloo">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Samurai Champloo</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Michiko to Hatchin.jpeg" alt="Michiko To Hatchin">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Michiko To Hatchin</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/charlotte.jpeg" alt="Charlotte">
+                </div>
+                <div class="progress-bar"><span style="width:10%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Charlotte</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Wistoria.jpeg" alt="Wistoria">
+                </div>
+                <div class="progress-bar"><span style="width:60%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Wistoria</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Tengoku Daimakyou.webp" alt="Tengoku Daimakyou">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Tengoku Daimakyou</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Arcane.jpeg" alt="Arcane">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Arcane</p>
+            </a>
+
+        </div>
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<!-- ======= SECTION : Animés populaires ======= -->
+<section class="section">
+    <h2>Animés populaires</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards" id="carousel-popular">
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Fairy Tail.png" alt="Fairy Tail">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Fairy Tail</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Black-Clover 2.png" alt="Black Clover">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Black Clover</p>
+            </a>
+
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Tokyo Ghoul.jpeg" alt="Tokyo Ghoul">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Tokyo Ghoul</p>
+            </a>
+
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Cyberpunk_Edgerunners_Trigger_2.webp" alt="Cyber Punk">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Cyber Punk</p>
+            </a>
+
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/l'attaque_des_titans_4.webp" alt="SNK">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>L'Attaque Des Titans</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/jojo's bizzare adventure part 5.webp" alt="JJBA">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Jojo's Bizzare Adventure</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/One piece wano.webp" alt="One Piece">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>One Piece</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/boruto.webp" alt="Boruto">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Boruto</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Gachiakuta.jpg" alt="Gachiakuta">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Gachiakuta</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/seven deadly sins.webp" alt="seven deadly sins">
+                </div>
+                <div class="progress-bar"><span style="width:80%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Seven Deadly Sins</p>
+            </a>
+
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<!-- ======= SECTION : Films d'animation ======= -->
+<section class="section">
+    <h2>Films d'animation</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards">
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/yourname 2.jpg" alt="Your Name">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Your Name</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Tenki No Ko.jpeg" alt="Tenki No Ko">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Tenki No Ko</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/i want to eat your pancreas.jpeg" alt="I want to eat your pancreas">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>I want to eat your pancreas</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/5 cm per seconds.jpeg" alt="5 cm per seconds">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>5 cm per seconds</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/spiderman across the spider-verse.jpeg" alt="Spiderman Across the Spider-Verse">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Spiderman Across the Spider-Verse</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Entergalactic.webp" alt="Entergalactic">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Entergalactic</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Silent_Voice.webp" alt="Silent Voice">
+                </div>
+                <div class="progress-bar"><span style="width:30%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Silent Voice</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Le Voyage de Chihiro.jpeg" alt="Le Voyage de Chihiro">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Le Voyage de Chihiro</p>
+            </a>
+
+        </div>
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<!-- ======= SECTION : Adult Cartoons ======= -->
+<section class="section">
+    <h2>Adult Cartoons</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards">
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Rick Et Morty2.webp" alt="Rick Et Morty">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Rick Et Morty</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Final_Space.webp" alt="Final Space">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Final Space</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Disanchantment.jpeg" alt="Désanchantée">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Désanchantée</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/BoJack_Horseman.jpeg" alt="BoJack Horseman">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>BoJack Horseman</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Inside Job.jpeg" alt="Inside Job">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Inside Job</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Close Enough.jpeg" alt="Close Enough">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Close Enough</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Solar Opposites.webp" alt="Solar Opposites">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Solar Opposites</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Invincible2.jpeg" alt="Invincible">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Invincible</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Les Simpsons.webp" alt="Les Simpsons">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Les Simpsons</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Family guy.jpeg" alt="Family Guy">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Family Guy</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/The Cleveland Show.jpeg" alt="The Cleveland Show">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>The Cleveland Show</p>
+            </a>
+
+        </div>
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<!-- ======= SECTION : Jeux-Vidéo ======= -->
+<section class="section">
+    <h2>Jeux-Vidéo</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards">
+            
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="" alt="">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p></p>
+            </a>
+
+        </div>
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<!-- ======= SECTION : Cartoons ======= -->
+<section class="section">
+    <h2>Cartoons</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards">
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Gravity Falls.jpeg" alt="Gravity Falls">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Gravity Falls</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Steven Universe.jpeg" alt="Steven Universe">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Steven Universe</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/le monde incroyable de gumball.jpeg" alt="Le Monde Incroyable De Gumball">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Le Monde Incroyable De Gumball</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Teen Titans Go.jpeg" alt="Teen Titans Go">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Teen Titans Go</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Adventure_Time_.png" alt="Adventure Time">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Adventure Time</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Regular Show.jpeg" alt="Regular Show">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Regular Show</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Craig de la crique.jpeg" alt="Craig De La Crique">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Craig De La Crique</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/We Bare Bears.jpeg" alt="We Bare Bears">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>We Bare Bears</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Bienvenue Chez Les Louds.jpeg" alt="Bienvenue Chez Les Louds">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Bienvenue Chez Les Louds</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Bienvenue Chez Les Casagrandes.jpeg" alt="Bienvenue Chez Les Casagrandes">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Bienvenue Chez Les Casagrandes</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/tom_et_jerry.webp" alt="Tom Et Jerry">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Tom Et Jerry</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Magic.jpeg" alt="Magic">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Magic</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Angelo La Débrouille.jpeg" alt="Angelo La Débrouille">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Angelo La Débrouille</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Mes Parrains Sont Magiques.jpeg" alt="Mes Parrains Sont Magiques">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Mes Parrains Sont Magiques</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Oscar Et Malika.jpeg" alt="Oscar Et Malika">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Oscar Et Malika</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Jamie A Des TenTacules.jpeg" alt="Jamie A Des TenTacules">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Jamie A Des TenTacules</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Rekkit..avif" alt="Rekkit">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Rekkit</p>
+            </a>
+
+        </div>
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<!-- ======= SECTION : Séries ======= -->
+<section class="section">
+    <h2>Séries</h2>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
+        <div class="cards">
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/The_Chi.jpeg" alt="The Chi">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>The Chi</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/On My Block 2.jpeg" alt="On My Block">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>On My Block</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Bel Air 2.jpeg" alt="Bel Air ">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Bel Air </p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Swagger.webp" alt="Swagger">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Swagger</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Top Boy.webp" alt="Top Boy">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Top Boy</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/BMF.jpeg" alt="BMF">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>BMF</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Snowfall.webp" alt="Snowfall">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Snowfall</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Outer Banks.jpeg" alt="Outer Banks">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Outer Banks</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/You.jpeg" alt="You">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>You</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/Lupin 3.jpeg" alt="Lupin">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>Lupin</p>
+            </a>
+
+            <a class="card" href="#">
+                <div class="card-img-wrapper">
+                    <img src="Image/La Reine Charlotte.webp" alt="La Reine Charlotte">
+                </div>
+                <div class="progress-bar"><span style="width:40%"></span></div>
+                <div class="card-overlay"><div class="play-btn">▶</div></div>
+                <p>La Reine Charlotte</p>
+            </a>
+            
+        </div>
+        <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 — Vinland Anime · Site de streaming d'animés</p>
+</footer>
+
+<!-- Lien vers le fichier JavaScript externe (toujours en bas du body) -->
+<script src="vinland-Anime JavaScript Version 3.js"></script>
+</body>
+</html>
