@@ -1,4 +1,3 @@
-<?php   
-
-$user = "guerton";
+<?php
+$user = "vinland";
 $pass = "linux";

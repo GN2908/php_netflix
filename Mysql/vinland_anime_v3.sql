@@ -14,6 +14,21 @@ CREATE DATABASE IF NOT EXISTS vinland_anime
 USE vinland_anime;
 
 -- ============================================================
+--  TABLE : users
+-- ============================================================
+CREATE TABLE IF NOT EXISTS users (
+    id_user      INT          NOT NULL AUTO_INCREMENT,
+    pseudo       VARCHAR(50)  NOT NULL,
+    prenom       VARCHAR(50)  NOT NULL,
+    nom          VARCHAR(50)  NOT NULL,
+    email        VARCHAR(150) NOT NULL UNIQUE,
+    mot_de_passe VARCHAR(255) NOT NULL,
+    created_at   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_user)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- ============================================================
 --  TABLE : type
 --  Catégorie du contenu (Animé, Film, Cartoon, Série...)
 -- ============================================================

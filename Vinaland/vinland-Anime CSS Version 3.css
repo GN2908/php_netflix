@@ -285,3 +285,29 @@ footer {
     margin-top: 40px;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
+
+/* ===== USER HEADER ===== */
+.user-info {
+    position: absolute;
+    right: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-deconnexion {
+    background: var(--accent);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background var(--transition);
+}
+
+.btn-deconnexion:hover {
+    background: var(--accent2);
+}

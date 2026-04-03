@@ -1,90 +1,93 @@
 <?php
-// ─── CONFIG DB ───────────────────────────────────────────────
-$host = 'localhost';
-$db   = 'vinland_anime';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+session_start();
+require_once 'bdd.php';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-];
-
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    die('Connexion échouée : ' . $e->getMessage());
+// Protection : si pas connecté, redirection vers le formulaire
+if (!isset($_SESSION['user_id'])) {
+    header('Location: Formulaire_vinland.html');
+    exit;
 }
 
-// ─── REQUÊTES PAR CATÉGORIE ──────────────────────────────────
-function getMediaByCategory(PDO $pdo, string $category): array {
-    $stmt = $pdo->prepare(
-        "SELECT id, title, thumbnail, video_url, progress
-         FROM media
-         WHERE category = :cat
-         ORDER BY sort_order ASC, id ASC"
-    );
-    $stmt->execute(['cat' => $category]);
+// ─── FONCTIONS ───────────────────────────────────────────────
+
+function getMediaByType(PDO $bdd, string $nomType): array {
+    $stmt = $bdd->prepare("
+        SELECT m.id_media, m.titre, m.image, m.progression
+        FROM media m
+        JOIN type t ON m.id_type = t.id_type
+        WHERE t.nom_type = :nom
+        ORDER BY m.id_media ASC
+    ");
+    $stmt->execute(['nom' => $nomType]);
     return $stmt->fetchAll();
 }
 
-function getInProgress(PDO $pdo): array {
-    $stmt = $pdo->query(
-        "SELECT id, title, thumbnail, video_url, progress
-         FROM media
-         WHERE progress > 0 AND progress < 100
-         ORDER BY updated_at DESC"
-    );
+function getPopulaires(PDO $bdd): array {
+    $stmt = $bdd->query("
+        SELECT id_media, titre, image, progression
+        FROM media
+        WHERE populaire = 1
+        ORDER BY id_media ASC
+    ");
+    return $stmt->fetchAll();
+}
+
+function getEnCours(PDO $bdd): array {
+    $stmt = $bdd->query("
+        SELECT id_media, titre, image, progression
+        FROM media
+        WHERE progression > 0 AND progression < 100
+        ORDER BY id_media ASC
+    ");
     return $stmt->fetchAll();
 }
 
 // ─── DONNÉES ─────────────────────────────────────────────────
-$inProgress  = getInProgress($pdo);
-$animes      = getMediaByCategory($pdo, 'anime');
-$films       = getMediaByCategory($pdo, 'film');
-$adultCartoons = getMediaByCategory($pdo, 'adult_cartoon');
-$jeux        = getMediaByCategory($pdo, 'jeux');
-$cartoons    = getMediaByCategory($pdo, 'cartoon');
-$series      = getMediaByCategory($pdo, 'serie');
+$enCours      = getEnCours($bdd);
+$populaires   = getPopulaires($bdd);
+$animes       = getMediaByType($bdd, 'Animé');
+$films        = getMediaByType($bdd, "Film d'animation");
+$adultCartoons = getMediaByType($bdd, 'Adult Cartoon');
+$cartoons     = getMediaByType($bdd, 'Cartoon');
+$series       = getMediaByType($bdd, 'Série');
 
-// ─── HELPER : génère les cards d'un carousel ─────────────────
+// ─── HELPERS ─────────────────────────────────────────────────
+
 function renderCards(array $items): void {
     if (empty($items)) {
         echo '<div class="card empty"><div class="card-img-wrapper"></div><p>Bientôt disponible</p></div>';
         return;
     }
     foreach ($items as $item):
-        $title    = htmlspecialchars($item['title'] ?? '');
-        $thumb    = htmlspecialchars($item['thumbnail'] ?? '');
-        $videoUrl = htmlspecialchars($item['video_url'] ?? '#');
-        $progress = (int)($item['progress'] ?? 0);
+        $titre      = htmlspecialchars($item['titre']);
+        $image      = htmlspecialchars($item['image']);
+        $progression = (int)$item['progression'];
 ?>
-        <a class="card" href="<?= $videoUrl ?>">
+        <a class="card" href="film.php?id=<?= $item['id_media'] ?>">
             <div class="card-img-wrapper">
-                <?php if ($thumb): ?>
-                    <img src="<?= $thumb ?>" alt="<?= $title ?>" loading="lazy">
-                <?php endif; ?>
+                <img src="/Image/<?= $image ?>" alt="<?= $titre ?>" loading="lazy">
             </div>
-            <div class="progress-bar"><span style="width:<?= $progress ?>%"></span></div>
-            <div class="card-overlay"><div class="play-btn">&#9654;</div></div>
-            <p><?= $title ?></p>
+            <div class="progress-bar">
+                <span style="width:<?= $progression ?>%"></span>
+            </div>
+            <div class="card-overlay">
+                <div class="play-btn">&#9654;</div>
+            </div>
+            <p><?= $titre ?></p>
         </a>
 <?php
     endforeach;
 }
 
-// ─── HELPER : génère un carousel complet ─────────────────────
-function renderSection(string $title, array $items, string $id): void { ?>
+function renderSection(string $titre, array $items, string $id): void { ?>
     <section class="section" id="section-<?= $id ?>">
-        <h2><?= htmlspecialchars($title) ?></h2>
+        <h2><?= htmlspecialchars($titre) ?></h2>
         <div class="carousel-wrapper">
-            <button class="carousel-btn prev" data-dir="-1">&#8249;</button>
+            <button class="carousel-btn prev" onclick="scroll(this, -1)">&#8249;</button>
             <div class="cards" id="<?= $id ?>">
                 <?php renderCards($items); ?>
             </div>
-            <button class="carousel-btn next" data-dir="1">&#8250;</button>
+            <button class="carousel-btn next" onclick="scroll(this, 1)">&#8250;</button>
         </div>
     </section>
 <?php }
@@ -96,41 +99,44 @@ function renderSection(string $title, array $items, string $id): void { ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinland Anime</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vinland-Anime CSS Version 3.css">
 </head>
 <body>
 
 <header>
-    <button class="menu-icon" id="menuToggle" aria-label="Menu">&#9776;</button>
+    <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">&#9776;</button>
     <h1>Vinland Anime</h1>
+    <div class="user-info">
+        Bonjour, <?= htmlspecialchars($_SESSION['prenom']) ?> !
+        <a href="deconnexion.php" class="btn-deconnexion">Se déconnecter</a>
+    </div>
 </header>
 
 <nav id="menu">
     <ul>
-        <li><a href="?cat=film">Films</a></li>
-        <li><a href="?cat=serie">Séries</a></li>
-        <li><a href="?cat=anime">Animés</a></li>
-        <li><a href="?cat=adult_cartoon">Adult Cartoons</a></li>
-        <li><a href="?cat=cartoon">Cartoons</a></li>
-        <li><a href="?cat=jeux">Jeux-Vidéo</a></li>
+        <li><a href="#section-films">Films</a></li>
+        <li><a href="#section-series">Séries</a></li>
+        <li><a href="#section-animes">Animés</a></li>
+        <li><a href="#section-adult">Adult Cartoons</a></li>
+        <li><a href="#section-cartoons">Cartoons</a></li>
     </ul>
 </nav>
 
 <main>
-    <?php renderSection('Reprenez votre visionnage', $inProgress,      'carousel-continue'); ?>
-    <?php renderSection('Animés populaires',         $animes,          'carousel-animes'); ?>
-    <?php renderSection("Films d'animation",         $films,           'carousel-films'); ?>
-    <?php renderSection('Adult Cartoons',            $adultCartoons,   'carousel-adult'); ?>
-    <?php renderSection('Jeux-Vidéo',                $jeux,            'carousel-jeux'); ?>
-    <?php renderSection('Cartoons',                  $cartoons,        'carousel-cartoons'); ?>
-    <?php renderSection('Séries',                    $series,          'carousel-series'); ?>
+    <?php renderSection('Reprenez votre visionnage', $enCours,       'carousel-encours'); ?>
+    <?php renderSection('Animés populaires',          $populaires,    'carousel-populaires'); ?>
+    <?php renderSection('Animés',                     $animes,        'animes'); ?>
+    <?php renderSection("Films d'animation",          $films,         'films'); ?>
+    <?php renderSection('Adult Cartoons',             $adultCartoons, 'adult'); ?>
+    <?php renderSection('Cartoons',                   $cartoons,      'cartoons'); ?>
+    <?php renderSection('Séries',                     $series,        'series'); ?>
 </main>
 
 <footer>
-    <p>&copy; <?= date('Y') ?> &mdash; Vinland Anime &middot; Site de streaming</p>
+    <p>&copy; <?= date('Y') ?> — Vinland Anime &middot; Site de streaming</p>
 </footer>
 
-<script src="main.js"></script>
+<script src="vinland-Anime JavaScript Version 3.js"></script>
 </body>
 </html>
